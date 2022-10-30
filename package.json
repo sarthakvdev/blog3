@@ -1,4 +1,5 @@
 {
+  "author": "sarthak verma",
   "private": true,
   "scripts": {
     "dev": "next dev",
