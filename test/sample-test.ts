@@ -1,19 +1,20 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
-const { describe, it } = require("node:test");
+const { describe, it } = require("mocha");
 
-describe("Blog", async () => {
-  it("Should create a post", async () => {
+describe("Blog", async function() {
+  it("Should create a post", async function() {
     const Blog = await ethers.getContractFactory("BlogThree");
     const blog = await Blog.deploy("Sarthak Blog3");
     await blog.deployed();
     await blog.createPost("My first Post", "Random content for Hash");
 
     const posts = await blog.fetchPosts();
-    expect(posts[0].title).to.equal("Sarthak Blog3");
+    console.log("post", posts[0]);
+    expect(posts[0].title).to.equal("My first Post");
   });
 
-  it("Should edit a post", async () => {
+  it("Should update a post", async function() {
     const Blog = await ethers.getContractFactory("BlogThree");
     const blog = await Blog.deploy("Sarthak Blog3");
     await blog.deployed();
@@ -26,11 +27,11 @@ describe("Blog", async () => {
       true
     );
 
-    posts = await blog.fetchPosts();
+    const posts = await blog.fetchPosts();
     expect(posts[0].title).to.equal("Sarthak Blog updated");
   });
 
-  it("Should edit a post", async () => {
+  it("Should update post's name", async function() {
     const Blog = await ethers.getContractFactory("BlogThree");
     const blog = await Blog.deploy("Sarthak Blog3");
     await blog.deployed();
@@ -40,3 +41,5 @@ describe("Blog", async () => {
     expect(await blog.name()).to.equal("Sarthak's Blog3");
   });
 });
+
+export {};

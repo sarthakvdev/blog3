@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract Blog3 {
+contract BlogThree {
     string public name;
     address public owner;
 
@@ -54,7 +54,7 @@ contract Blog3 {
     function createPost(string memory title, string memory hash) public onlyOwner {
         _postIds.increment();
         uint postId = _postIds.current();
-        Post memory post = idToPost[postId];
+        Post storage post = idToPost[postId];
         post.id = postId;
         post.title = title;
         post.published = true;
