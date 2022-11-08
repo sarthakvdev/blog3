@@ -11,10 +11,9 @@
     "@nomiclabs/hardhat-ethers": "^2.2.1",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@openzeppelin/contracts": "^4.7.3",
-    "@walletconnect/web3-provider": "^1.8.0",
+    "@rainbow-me/rainbowkit": "^0.7.4",
     "chai": "^4.3.6",
     "easymde": "^2.18.0",
-    "ethereum-waffle": "^3.4.4",
     "ethers": "^5.7.2",
     "hardhat": "^2.12.1",
     "ipfs-http-client": "^59.0.0",
@@ -24,7 +23,7 @@
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.3",
     "react-simplemde-editor": "^5.2.0",
-    "web3modal": "^1.9.9"
+    "wagmi": "^0.7.13"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
