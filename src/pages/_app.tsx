@@ -12,10 +12,9 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import "@rainbow-me/rainbowkit/styles.css";
+import Header from "src/components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [account, setAccount] = useState(null);
-
   const { chains, provider } = configureChains(
     [chain.polygonMumbai],
     [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
@@ -33,11 +32,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <>
+      <Header />
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains}>
+          <Component {...pageProps} />
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </>
   );
 }
 
